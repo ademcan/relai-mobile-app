@@ -66,20 +66,16 @@ export default class Demo extends Component {
       cumulcrypto: cumulcrypto,
       finalvaluefiat: finalvaluefiat,
       finalvaluecrypo: finalvaluecrypo,
-      pctgain: (finalvaluecrypo / finalvaluefiat) * 100,
+      pctgain: (finalvaluecrypo / finalvaluefiat) * 100 - 100,
       periodpricedata: periodpricedata,
       scale: max
     });
   }
 
   render() {
-    // const data = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ]
-    // const data2 = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ].reverse()
-    // const data3 = [ 50, 10, 64, 95, -4, -24, 45, 29, 35, 33, -5, 2, 30, -20, -80 ]
-    const price = this.state.periodpricedata.map(item => {
+   const price = this.state.periodpricedata.map(item => {
       return item.v;
     });
-    //    console.log(price);
     return (
       <View style={styles.container}>
         <View
@@ -119,7 +115,9 @@ export default class Demo extends Component {
                 numberOfTicks={ 10 }
                 formatLabel={ value => `${value}` }
             /> */}
+           
           <LineChart
+            animate={true}
             style={{ flex: 1 }}
             data={price}
             svg={{ stroke: "rgba(134, 65, 244, 0.5)", strokeWidth: 3 }}
@@ -127,9 +125,12 @@ export default class Demo extends Component {
             gridMin={0}
             gridMax={this.state.scale}
           >
+           
+
             <Grid />
           </LineChart>
           <LineChart
+            animate={true}
             style={StyleSheet.absoluteFill}
             data={this.state.cumulfiat}
             svg={{ stroke: "rgba(34, 128, 176, 0.5)", strokeWidth: 3 }}
@@ -138,6 +139,7 @@ export default class Demo extends Component {
             gridMax={this.state.scale}
           />
           <LineChart
+            animate={true}
             style={StyleSheet.absoluteFill}
             data={this.state.cumulcrypto}
             svg={{ stroke: "rgba(345, 8, 16, 0.5)", strokeWidth: 3 }}
