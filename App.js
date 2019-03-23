@@ -69,6 +69,7 @@ import Main from './screens/Main';
 import Demo from './screens/Demo';
 import FAQ from './screens/Faq';
 import Login from './screens/Login';
+import Details from './screens/Details';
 
 // AuthLoadingScreen checks if a wallet already exists
 // - if yes -> redirects to the app main view
@@ -116,21 +117,21 @@ const CustomDrawerContentComponent = props => (
 
 
 // The Stack for modals
-// const TxStack = createStackNavigator(
-//   {
-//     Main : {
-//       path: '/',
-//       screen: Main
-//     },
-//     TxDetails : {
-//       path: '/',
-//       screen: TxDetails
-//   },
-//   },
-//   {
-//     headerMode: 'none',
-//   }
-// );
+const MainStack = createStackNavigator(
+  {
+    Main : {
+      path: '/',
+      screen: Main
+    },
+    Details : {
+      path: '/',
+      screen: Details
+  },
+  },
+  {
+    headerMode: 'none',
+  }
+);
 
 
 // MainDrawerMenu
@@ -148,7 +149,7 @@ const MainDrawerMenu = createDrawerNavigator(
     //     // drawerIcon: ({ tintColor }) => <Icon name="cog" size={17} />,
     //   },
     // },
-    Main: { screen: Main },
+    Main: { screen: MainStack },
     Demo: { screen: Demo },
     FAQ: { screen: FAQ },
   },

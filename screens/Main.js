@@ -19,13 +19,16 @@ export default class Main extends Component {
                 <Image source={require('../resources/images/sandwich_icon.png')} resizeMode="contain" style={{ height: 25, width: 25 }} />
             </TouchableHighlight>    
         </View>
-        <View style={{backgroundColor:'white', flex: 1, position: 'absolute', top: 100, left:'10%', right:'10%',  width:'80%', height: 180, borderRadius:20, borderWidth:1, borderColor:'gray', alignItems:'center', justifyContent:'center'}}> 
-         <Text style={{fontSize:20, color:'#253041'}}>Your portfolio</Text>
-         <Text style={{fontSize:36, color:'#253041'}}>900 CHF</Text>
-         <View style={{flexDirection:'row'}}>
-            <Image source={require('../resources/images/arrow_up.png')} resizeMode="contain" style={{ height: 20, width: 20 }} />
+
+        <View onStartShouldSetResponder={() => {this.props.navigation.navigate("Details")}} style={{backgroundColor:'white', flex: 1, position: 'absolute', top: 100, left:'10%', right:'10%',  width:'80%', height: 180, borderRadius:20, borderWidth:1, borderColor:'gray', alignItems:'center', justifyContent:'center'}}>
+            
+            <Text style={{fontSize:20, color:'#253041'}}>Your portfolio</Text>
+            <Text style={{fontSize:36, color:'#253041'}}>900 CHF</Text>
+            <View style={{flexDirection:'row'}}>
+                <Image source={require('../resources/images/arrow_up.png')} resizeMode="contain" style={{ height: 20, width: 20 }} />
             <Text style={{fontSize:16, color:'green'}}>9.76 %</Text>
-         </View>
+            </View>
+        
         </View>
 
 
