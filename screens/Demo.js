@@ -100,7 +100,7 @@ export default class Demo extends Component {
               paddingTop: 30
             }}
           >
-            Demo
+            Simulation
           </Text>
         </View>
 
