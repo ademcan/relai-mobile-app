@@ -41,7 +41,10 @@ export default class Demo extends Component {
     let sumfiat = 0;
     let sumcrypto = 0;
 
-    const slice = (pricedata.length-this.state.time*4)>0 ? pricedata.length-this.state.time*4 : 0;
+    const slice =
+      pricedata.length - this.state.time * 4 > 0
+        ? pricedata.length - this.state.time * 4
+        : 0;
     let periodpricedata = pricedata.slice(slice);
 
     periodpricedata.map((price, i) => {
@@ -53,16 +56,17 @@ export default class Demo extends Component {
       if (sumfiat > max) max = sumfiat;
       if (price.v > max) max = price.v;
       if (currentvaluecrypto > max) max = currentvaluecrypto;
-
-      console.log("DATA=", sumfiat, price.v, currentvaluecrypto);
     });
 
-    console.log("SCALE=", max);
+    const finalvaluefiat = cumulfiat[cumulfiat.length - 1];
+    const finalvaluecrypo = cumulcrypto[cumulcrypto.length - 1];
 
     this.setState({
       cumulfiat: cumulfiat,
       cumulcrypto: cumulcrypto,
-      pctgain : cumulcrypto / cumulfiat * 100,
+      finalvaluefiat: finalvaluefiat,
+      finalvaluecrypo: finalvaluecrypo,
+      pctgain: (finalvaluecrypo / finalvaluefiat) * 100,
       periodpricedata: periodpricedata,
       scale: max
     });
@@ -224,7 +228,6 @@ export default class Demo extends Component {
             paddingTop: 30
           }}
         >
-       
           <TouchableHighlight
             style={
               this.state.time == 18 ? styles.activeButton : styles.defaultButton
@@ -262,8 +265,7 @@ export default class Demo extends Component {
             </Text>
           </TouchableHighlight>
 
-
-   <TouchableHighlight
+          <TouchableHighlight
             style={
               this.state.time == 48 ? styles.activeButton : styles.defaultButton
             }
@@ -299,7 +301,6 @@ export default class Demo extends Component {
               60M
             </Text>
           </TouchableHighlight>
-
         </View>
 
         {/* <View style={{flex:1, height: 300, flexDirection: 'row', marginTop:30, justifyContent:'center', marginLeft:10, marginRight:10}}>
