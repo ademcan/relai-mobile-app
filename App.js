@@ -149,12 +149,14 @@ const MainDrawerMenu = createDrawerNavigator(
     //     // drawerIcon: ({ tintColor }) => <Icon name="cog" size={17} />,
     //   },
     // },
-    Main: { screen: MainStack },
-    Demo: { screen: Demo },
-    FAQ: { screen: FAQ },
+   
+    "My Investments": { screen: Main },
+    Learn: { screen: FAQ },
+    Simulation : { screen: Demo },
+
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: "My Investments",
     drawerPosition: 'left',
     contentComponent: CustomDrawerContentComponent,
     contentOptions: {
