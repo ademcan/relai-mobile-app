@@ -14,8 +14,8 @@ export default class Demo extends Component {
       const data = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ]
     return (
       <View style={styles.container}>
-        <View style={{height: 200, backgroundColor:"#222b3a", paddingTop: 50}}>
-            <TouchableHighlight style={{paddingLeft:20}} onPress={() => this.props.navigation.openDrawer()}>
+        <View style={{height: 200, backgroundColor:"#253041", paddingTop: 50}}>
+            <TouchableHighlight style={{paddingLeft:20}} onPress={() => this.props.navigation.openDrawer()} underlayColor={"#253041"}>
                 <Image source={require('../resources/images/sandwich_icon.png')} resizeMode="contain" style={{ height: 25, width: 25 }} />
             </TouchableHighlight>
             <Text style={{color:"white", textAlign:'center', fontSize: 28, paddingTop: 30}}>Demo</Text>

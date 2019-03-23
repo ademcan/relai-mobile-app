@@ -49,12 +49,12 @@ let styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 5,
-    borderColor: '#5ed9f5',
+    borderColor: '#253041',
     borderWidth: 1,
     marginHorizontal: 5
   },
   selected: {
-    backgroundColor: '#5ed9f5'
+    backgroundColor: '#253041'
   }
 });
 
