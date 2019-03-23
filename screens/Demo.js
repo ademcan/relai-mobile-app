@@ -4,6 +4,8 @@ import {
   Text,
   TouchableHighlight,
   Image,
+  Modal,
+  Button,
   View
 } from "react-native";
 import {
@@ -22,7 +24,8 @@ export default class Demo extends Component {
       cumulcrypto: [],
       periodpricedata: [],
       amount: 25,
-      time: 36
+      time: 36,
+      isVisible: false
     };
   }
 
@@ -78,6 +81,30 @@ export default class Demo extends Component {
     });
     return (
       <View style={styles.container}>
+
+        <Modal animationType = {"slide"} transparent = {true}
+            visible = {this.state.isVisible}
+            onRequestClose = {() =>{ console.log("Modal has been closed.") }}
+            >
+            {/*All views of Modal*/}
+            {/*Animation can be slide, slide, none*/}
+            <View style = {{flex:1, backgroundColor: 'rgba(0,0,0,0.5)', alignItems:'center', justifyContent:'center'}}>
+                <View style={{width:300, height:500, backgroundColor:'white', borderRadius:30, borderWidth:1, alignItems:'center', justifyContent:'center'}}>
+                    <Text style = {{fontSize:22, color:"#253041"}}>So far you invested</Text>
+                    <Text style = {{fontSize:28, color:"#253041"}}>{this.state.finalvaluefiat}</Text>
+                    <Text style = {{fontSize:22, color:"#253041"}}>Your actual portfolio</Text>
+                    <Text style = {{fontSize:28, color:"#253041"}}>{Number((parseFloat(this.state.finalvaluecrypo)).toFixed(2))}</Text>
+                    <Text style = {{fontSize:22, color:"#253041"}}>Your progress so far</Text>
+                    <Text style = {{fontSize:28, color:"#253041"}}>{Number((parseFloat(this.state.pctgain)).toFixed(2))} %</Text>
+                    
+                    <TouchableHighlight style={{width:200, height:50, backgroundColor: "#253041", justifyContent:'center', marginTop:20}} onPress = {() => {
+                    this.setState({ isVisible:false})}}>
+                        <Text style={{color:"white",textAlign:'center', fontSize: 18}}>Close</Text>
+                    </TouchableHighlight>
+                </View>
+            </View>
+        </Modal>
+
         <View
           style={{ height: 200, backgroundColor: "#253041", paddingTop: 50 }}
         >
@@ -305,26 +332,12 @@ export default class Demo extends Component {
           </TouchableHighlight>
         </View>
 
-        {/* <View style={{flex:1, height: 300, flexDirection: 'row', marginTop:30, justifyContent:'center', marginLeft:10, marginRight:10}}>
+        <View style={{alignItems:'center', paddingTop:20}}>
+            <TouchableHighlight style={{width:300, height:50, backgroundColor: "#253041", justifyContent:'center', marginTop:20}} onPress={() => {this.setState({isVisible:true})}}>
+                <Text style={{color:"white",textAlign:'center', fontSize: 18}}>Details</Text>
+            </TouchableHighlight>
+        </View>
 
-            <LineChart
-                style={{flex:1, height: 300 }}
-                data={ data }
-                svg={{ stroke: 'rgb(3, 133, 230)', strokeWidth:3 }}
-                contentInset={{ top: 20, bottom: 20 }}
-            >
-
-                <Grid/>
-            </LineChart>
-
-            <LineChart
-            style={{flex:1, height: 300 }}
-            data={ data2 }
-            svg={{ stroke: 'rgb(234, 133, 230)', strokeWidth:3 }}
-            contentInset={{ top: 20, bottom: 20 }}
-            />
-            
-        </View> */}
       </View>
     );
   }
