@@ -7,7 +7,7 @@ import {
   View
 } from 'react-native';
 
-export default class Main extends Component {
+export default class Faq1 extends Component {
 
   render() {
     return (

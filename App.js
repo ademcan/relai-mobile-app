@@ -67,6 +67,7 @@ import { createStackNavigator , createDrawerNavigator, createSwitchNavigator, Dr
 import SignIn from './screens/SignIn';
 import Main from './screens/Main';
 import Demo from './screens/Demo';
+import FAQ from './screens/Faq';
 // import Create from './screens/Create';
 // import ConfirmMnemonic from './screens/ConfirmMnemonic';
 // import ProvidePwd from './screens/ProvidePwd';
@@ -158,6 +159,7 @@ const MainDrawerMenu = createDrawerNavigator(
     // },
     Main: { screen: Main },
     Demo: { screen: Demo },
+    FAQ: { screen: FAQ },
     // Send: { screen: Send },
     // Receive: { screen: Receive },
     // Settings: { screen: Settings },
