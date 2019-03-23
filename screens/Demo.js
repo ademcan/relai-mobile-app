@@ -60,7 +60,7 @@ export default class Demo extends Component {
     let periodpricedata = pricedata.slice(slice);
 
     periodpricedata.map((price, i) => {
-      sumfiat += investment;
+      sumfiat += investment / 4;
       sumcrypto += investment / price.v;
       currentvaluecrypto = sumcrypto * price.v;
       cumulfiat.push(sumfiat);
@@ -100,9 +100,9 @@ export default class Demo extends Component {
             <View style = {{flex:1, backgroundColor: 'rgba(0,0,0,0.5)', alignItems:'center', justifyContent:'center'}}>
                 <View style={{width:300, height:500, backgroundColor:'white', borderRadius:30, borderWidth:1, alignItems:'center', justifyContent:'center'}}>
                     <Text style = {{fontSize:22, color:"#253041"}}>So far you invested</Text>
-                    <Text style = {{fontSize:28, color:"#253041"}}>{this.state.finalvaluefiat}</Text>
+                    <Text style = {{fontSize:28, color:"#253041"}}>{this.state.finalvaluefiat} CHF</Text>
                     <Text style = {{fontSize:22, color:"#253041"}}>Your actual portfolio</Text>
-                    <Text style = {{fontSize:28, color:"#253041"}}>{Number((parseFloat(this.state.finalvaluecrypo)).toFixed(2))}</Text>
+                    <Text style = {{fontSize:28, color:"#253041"}}>{Number((parseFloat(this.state.finalvaluecrypo)).toFixed(2))} CHF</Text>
                     <Text style = {{fontSize:22, color:"#253041"}}>Your progress so far</Text>
                     <Text style = {{fontSize:28, color:"#253041"}}>{Number((parseFloat(this.state.pctgain)).toFixed(2))} %</Text>
                     
