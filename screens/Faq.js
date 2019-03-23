@@ -14,6 +14,13 @@ import Faq3 from './Faq3';
 
 export default class FAQ extends Component {
 
+    static navigationOptions = {
+        
+        drawerIcon: ({ tintColor }) => (
+            <Image source={require('../resources/images/light_menu.png')} resizeMode={"contain"}  style={styles.menu_icon} />
+        ),
+      };
+
     constructor(props) {
         super(props);
         this.state = {index: 0};
@@ -52,5 +59,9 @@ export default class FAQ extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  menu_icon: {
+    width: 45,
+    height: 45,
   },
 });

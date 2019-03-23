@@ -10,6 +10,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 export default class Main extends Component {
 
+   
+
   render() {
     return (
       <View style={styles.container}>
@@ -86,5 +88,9 @@ export default class Main extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  menu_icon: {
+    width: 45,
+    height: 45,
   },
 });

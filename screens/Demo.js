@@ -17,6 +17,15 @@ import {
 } from "react-native-svg-charts";
 import pricedata from "../resources/data/btceur.json";
 export default class Demo extends Component {
+
+    static navigationOptions = {
+        
+        drawerIcon: ({ tintColor }) => (
+            <Image source={require('../resources/images/graph_menu.png')} resizeMode={"contain"}  style={styles.menu_icon} />
+        ),
+      };
+
+
   constructor() {
     super();
     this.state = {
@@ -372,5 +381,9 @@ const styles = StyleSheet.create({
   },
   activeText: {
     color: "white"
-  }
+  },
+  menu_icon: {
+    width: 45,
+    height: 45,
+  },
 });

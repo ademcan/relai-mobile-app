@@ -70,6 +70,9 @@ import Demo from './screens/Demo';
 import FAQ from './screens/Faq';
 import Login from './screens/Login';
 import Details from './screens/Details';
+import Onboarding1 from './screens/Onboarding1'
+import Onboarding2 from './screens/Onboarding2'
+import Onboarding3 from './screens/Onboarding3'
 
 // AuthLoadingScreen checks if a wallet already exists
 // - if yes -> redirects to the app main view
@@ -90,8 +93,8 @@ _bootstrapAsync = async () => {
   // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
 
   // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
-  // this.props.navigation.navigate(walletCreated ? 'App' : 'App');
-  this.props.navigation.navigate(walletCreated ? 'Auth' : 'Auth');
+  this.props.navigation.navigate(walletCreated ? 'App' : 'App');
+  // this.props.navigation.navigate(walletCreated ? 'Auth' : 'Auth');
 };
 
 // Render any loading content that you like here
@@ -105,12 +108,12 @@ render() {
 }
 
 const CustomDrawerContentComponent = props => (
-  <View style={{ flex: 2, backgroundColor: '#222b3a'}}>
+  <View style={{ flex: 2, backgroundColor: '#273040'}}>
     <View style={{flex:1, paddingTop: 100}}>
       <DrawerItems {...props}/>
     </View>
     <View style={{flex: 1, alignSelf: 'center', justifyContent: 'flex-end', bottom: 30}}>
-      <Image source={require('./resources/images/relai_logo.jpg')} resizeMode={"contain"}  style={{width:150, height:150}}/>
+      <Image source={require('./resources/images/relai_logo.png')} resizeMode={"contain"}  style={{width:150, height:150}}/>
     </View>
   </View>
 )
@@ -150,7 +153,16 @@ const MainDrawerMenu = createDrawerNavigator(
     //   },
     // },
    
-    "My Investments": { screen: Main },
+    "My Investments": {
+      screen: MainStack,
+      navigationOptions: {
+        drawerIcon: ({ tintColor }) => (
+          <Image source={require('./resources/images/wallet_menu.png')} resizeMode={"contain"}  style={{width:45, height:45}}/>
+        ),
+        // drawerLabel: 'Settings',
+        // drawerIcon: ({ tintColor }) => <Icon name="cog" size={17} />,
+      }, 
+    },
     Learn: { screen: FAQ },
     Simulation : { screen: Demo },
 
@@ -192,6 +204,9 @@ const AuthStack = createStackNavigator(
   {
     SignIn: { screen: SignIn },
     Login: { screen: Login},
+    Onboarding1: { screen: Onboarding1},
+    Onboarding2: { screen: Onboarding2},
+    Onboarding3: { screen: Onboarding3},
   },
   {
     initialRouteName: 'SignIn',
