@@ -23,8 +23,8 @@ export default class Onboarding3 extends Component {
 
   confirm = () => {
     this.setState({loading:true}); 
-    setInterval( () => {this.setState({isVisible:true})} ,5000);
-    setInterval( () => {this.props.navigation.navigate("Main")} ,6000);
+    setTimeout( () => {this.setState({isVisible:true})} ,5000);
+    setTimeout( () => {this.props.navigation.navigate("Main")} ,6000);
   }
 
   render() {
@@ -51,7 +51,10 @@ export default class Onboarding3 extends Component {
             <Text style={{textAlign:'center', fontSize:20, color:"#253041", paddingTop:30}}>Occurence</Text>
             <Text style={{textAlign:'center', fontSize:24, color:"#253041"}}>Monthy</Text>
             <Text style={{textAlign:'center', fontSize:20, color:"#253041", paddingTop:30}}>Recipient account</Text>
-            <Text style={{textAlign:'center', fontSize:24, color:"#253041"}}>e238-221-52</Text>
+            <Text style={{textAlign:'center', fontSize:24, color:"#253041"}}>IBAN
+DE07700222000020041966
+SWIFT/BIC
+FDDODEMMXXX</Text>
             <Text style={{textAlign:'center', fontSize:20, color:"#253041", paddingTop:30}}>Communication</Text>
             <Text style={{textAlign:'center', fontSize:24, color:"#253041"}}>23xDfrDqq09l3l14li872kd</Text>
 

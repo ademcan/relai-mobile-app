@@ -281,7 +281,7 @@ export default class Demo extends Component {
                 this.state.time == 18 ? styles.activeText : styles.defaultText
               }
             >
-              18M
+              1,5Y
             </Text>
           </TouchableHighlight>
           <TouchableHighlight
@@ -299,7 +299,7 @@ export default class Demo extends Component {
                 this.state.time == 36 ? styles.activeText : styles.defaultText
               }
             >
-              36M
+              3Y
             </Text>
           </TouchableHighlight>
 
@@ -318,7 +318,7 @@ export default class Demo extends Component {
                 this.state.time == 48 ? styles.activeText : styles.defaultText
               }
             >
-              48M
+              4Y
             </Text>
           </TouchableHighlight>
           <TouchableHighlight
@@ -336,7 +336,7 @@ export default class Demo extends Component {
                 this.state.time == 60 ? styles.activeText : styles.defaultText
               }
             >
-              60M
+              5Y
             </Text>
           </TouchableHighlight>
         </View>

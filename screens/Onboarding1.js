@@ -13,6 +13,7 @@ export default class Onboarding1 extends Component {
 
   state={
     amount: '',
+    asset: '',
     freq:''
   }
 
@@ -38,6 +39,24 @@ export default class Onboarding1 extends Component {
     );  
     }
 
+    showActionSheetAsset = () => {
+      ActionSheetIOS.showActionSheetWithOptions(
+          {
+          options: ['Cancel', 'Bitcoin', "Ether"],
+          
+          cancelButtonIndex: 0,
+          },
+          (buttonIndex) => {
+          if (buttonIndex === 1) {
+              this.setState({asset:"Bitcoin"})
+          }
+          else {
+              this.setState({asset:"Ether"})
+          }
+          },
+      );  
+      }
+  
   render() {
     return (
       <View style={styles.container}>
@@ -51,6 +70,8 @@ export default class Onboarding1 extends Component {
 
           <Button title="Frequency" onPress={this.showActionSheet}/>
           <Text style={{textAlign:'center', fontSize:24}}>{this.state.freq}</Text>
+          <Button title="Asset to invest in" onPress={this.showActionSheetAsset}/>
+          <Text style={{textAlign:'center', fontSize:24}}>{this.state.asset}</Text>
         </View>
         <View style={{alignItems:'center', paddingTop: 40}}>
             <TouchableHighlight style={{width:300, height:50, backgroundColor: "#253041", justifyContent:'center'}} onPress={ () => this.props.navigation.navigate("Onboarding2") }>

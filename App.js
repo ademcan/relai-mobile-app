@@ -155,8 +155,10 @@ const MainDrawerMenu = createDrawerNavigator(
     //     // drawerIcon: ({ tintColor }) => <Icon name="cog" size={17} />,
     //   },
     // },
+    Learn: { screen: FAQ },
+    Simulate : { screen: Demo },
    
-    "My Investments": {
+    "Invest": {
       screen: MainStack,
       navigationOptions: {
         drawerIcon: ({ tintColor }) => (
@@ -166,12 +168,10 @@ const MainDrawerMenu = createDrawerNavigator(
         // drawerIcon: ({ tintColor }) => <Icon name="cog" size={17} />,
       }, 
     },
-    Learn: { screen: FAQ },
-    Simulation : { screen: Demo },
 
   },
   {
-    initialRouteName: "My Investments",
+    initialRouteName: "Invest",
     drawerPosition: 'left',
     contentComponent: CustomDrawerContentComponent,
     contentOptions: {

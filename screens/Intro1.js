@@ -14,10 +14,10 @@ export default class Intro1 extends Component {
       <View style={styles.container}>
         <View style={{alignItems:'center'}}>
             <Image/>
-            <Image source={require('../resources/images/bitcoin_icon.png')} resizeMode={"contain"}  style={{width:300, height:300}}/>
+            <Image source={require('../resources/images/relai.jpg')} resizeMode={"contain"}  style={{width:300, height:300}}/>
         </View>
-        <Text style={{textAlign:'center', fontSize:24, color:"#253041"}}>Keep track of your </Text>
-        <Text style={{textAlign:'center', fontSize:24, color:"#253041"}}>cryptocurrencies investment</Text>
+        <Text style={{textAlign:'center', fontSize:24, color:"#253041"}}>Crypto Investing</Text>
+        <Text style={{textAlign:'center', fontSize:24, color:"#253041"}}>made easy</Text>
       </View>
     );
   }
