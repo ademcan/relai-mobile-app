@@ -68,17 +68,7 @@ import SignIn from './screens/SignIn';
 import Main from './screens/Main';
 import Demo from './screens/Demo';
 import FAQ from './screens/Faq';
-// import Create from './screens/Create';
-// import ConfirmMnemonic from './screens/ConfirmMnemonic';
-// import ProvidePwd from './screens/ProvidePwd';
-// import TransactionsHistory from './screens/TransactionsHistory';
-// import Send from './screens/Send';
-// import Receive from './screens/Receive';
-// import Settings from './screens/Settings';
-// import TxDetails from './screens/TxDetails';
-// import Donate from './screens/Donate';
-// import ImportWallet from './screens/ImportWallet';
-
+import Login from './screens/Login';
 
 // AuthLoadingScreen checks if a wallet already exists
 // - if yes -> redirects to the app main view
@@ -99,7 +89,8 @@ _bootstrapAsync = async () => {
   // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
 
   // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
-  this.props.navigation.navigate(walletCreated ? 'App' : 'App');
+  // this.props.navigation.navigate(walletCreated ? 'App' : 'App');
+  this.props.navigation.navigate(walletCreated ? 'Auth' : 'Auth');
 };
 
 // Render any loading content that you like here
@@ -160,10 +151,6 @@ const MainDrawerMenu = createDrawerNavigator(
     Main: { screen: Main },
     Demo: { screen: Demo },
     FAQ: { screen: FAQ },
-    // Send: { screen: Send },
-    // Receive: { screen: Receive },
-    // Settings: { screen: Settings },
-    // Donate: { screen: Donate },
   },
   {
     initialRouteName: 'Main',
@@ -201,10 +188,7 @@ const RootStack = createStackNavigator(
 const AuthStack = createStackNavigator(
   {
     SignIn: { screen: SignIn },
-    // Create: { screen: Create },
-    // ConfirmMnemonic: { screen: ConfirmMnemonic },
-    // ProvidePwd: { screen: ProvidePwd },
-    // ImportWallet: { screen: ImportWallet },
+    Login: { screen: Login},
   },
   {
     initialRouteName: 'SignIn',
