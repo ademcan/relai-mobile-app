@@ -28,14 +28,11 @@ export default class Main extends Component {
             <Text style={{fontSize:36, color:'#253041'}}>998.70 CHF</Text>
             <View style={{flexDirection:'row'}}>
                 <Image source={require('../resources/images/arrow_up.png')} resizeMode="contain" style={{ height: 20, width: 20 }} />
-            <Text style={{fontSize:16, color:'green'}}>9.76 %</Text>
-            
-            
+            <Text style={{fontSize:16, color:'green'}}>9.76 %</Text>            
             </View>
-            <View><Text style={{fontSize:16, color:'green'}}>You earned 98.70 CHF</Text></View>
+            <View style={{alignItems:'center'}}><Text style={{fontSize:16, color:'green'}}>{'\n'}You earned</Text><Text style={{fontSize:20, color:'green', fontWeight:'bold'}}> 98.70 CHF</Text></View>
         
         </View>
-
 
         <View style={{alignItems:'center', paddingTop: 100, paddingBottom:40}}>
             <Text style={{fontSize:20}}>Last payments</Text>
@@ -43,43 +40,44 @@ export default class Main extends Component {
         <ScrollView>
             <View style={{alignItems:'center', width:'100%', height:100, backgroundColor:'#eaeaea', flexDirection:'row', justifyContent:'center'}}>
                 <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>01.02.2019</Text>
-                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:22, fontWeight:'bold'}}>100 CHF</Text>
+                
                 <View style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Image source={require('../resources/images/arrow_up.png')} resizeMode="contain" style={{ height: 20, width: 20 }} />
-                    <Text style={{ color:'green'}}>2.04 %</Text>
+                    <Text style={{ color:'green', fontWeight:'bold', fontSize:22}}>2.04 %</Text>
                 </View>
+                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>100 CHF</Text>
             </View>
             <View style={{alignItems:'center', width:'100%', height:100, backgroundColor:'white', flexDirection:'row', justifyContent:'center'}}>
                 <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>01.01.2019</Text>
-                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:22, fontWeight:'bold'}}>100 CHF</Text>
                 <View style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Image source={require('../resources/images/arrow_down.png')} resizeMode="contain" style={{ height: 20, width: 20 }} />
-                    <Text style={{ color:'red'}}>0.87 %</Text>
+                    <Text style={{ color:'red', fontWeight:'bold', fontSize:22}}>0.87 %</Text>
                 </View>
+                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>100 CHF</Text>
             </View>
             <View style={{alignItems:'center', width:'100%', height:100, backgroundColor:'#eaeaea', flexDirection:'row', justifyContent:'center'}}>
                 <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>01.12.2018</Text>
-                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:22, fontWeight:'bold'}}>100 CHF</Text>
                 <View style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Image source={require('../resources/images/arrow_up.png')} resizeMode="contain" style={{ height: 20, width: 20 }} />
-                    <Text style={{ color:'green'}}>1.20 %</Text>
+                    <Text style={{ color:'green', fontWeight:'bold', fontSize:22}}>1.20 %</Text>
                 </View>
+                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>100 CHF</Text>
             </View>
             <View style={{alignItems:'center', width:'100%', height:100, backgroundColor:'white', flexDirection:'row', justifyContent:'center'}}>
                 <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>01.11.2018</Text>
-                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:22, fontWeight:'bold'}}>100 CHF</Text>
                 <View style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Image source={require('../resources/images/arrow_up.png')} resizeMode="contain" style={{ height: 20, width: 20 }} />
-                    <Text style={{ color:'green'}}>0.55 %</Text>
+                    <Text style={{ color:'green', fontWeight:'bold', fontSize:22}}>0.55 %</Text>
                 </View>
+                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>100 CHF</Text>
             </View>
             <View style={{alignItems:'center', width:'100%', height:100, backgroundColor:'#eaeaea', flexDirection:'row', justifyContent:'center'}}>
                 <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>01.10.2018</Text>
-                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:22, fontWeight:'bold'}}>100 CHF</Text>
                 <View style={{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
                     <Image source={require('../resources/images/arrow_up.png')} resizeMode="contain" style={{ height: 20, width: 20 }} />
-                    <Text style={{ color:'green'}}>1.06 %</Text>
+                    <Text style={{ color:'green', fontWeight:'bold', fontSize:22}}>1.06 %</Text>
                 </View>
+                <Text style={{flex:1, color:'black', textAlign:'center', fontSize:18}}>100 CHF</Text>
             </View>
         </ScrollView>
       </View>

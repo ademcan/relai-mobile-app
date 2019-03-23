@@ -73,6 +73,7 @@ import Details from './screens/Details';
 import Onboarding1 from './screens/Onboarding1'
 import Onboarding2 from './screens/Onboarding2'
 import Onboarding3 from './screens/Onboarding3'
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 // AuthLoadingScreen checks if a wallet already exists
 // - if yes -> redirects to the app main view
@@ -113,7 +114,9 @@ const CustomDrawerContentComponent = props => (
       <DrawerItems {...props}/>
     </View>
     <View style={{flex: 1, alignSelf: 'center', justifyContent: 'flex-end', bottom: 30}}>
-      <Image source={require('./resources/images/relai_logo.png')} resizeMode={"contain"}  style={{width:150, height:150}}/>
+      <TouchableHighlight onPress={() => {props.navigation.navigate("SignIn")}} underlayColor={'#273040'}>
+        <Image source={require('./resources/images/relai_logo.png')} resizeMode={"contain"}  style={{width:150, height:150}} />
+      </TouchableHighlight>
     </View>
   </View>
 )

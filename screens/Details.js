@@ -89,6 +89,25 @@ export default class Details extends Component {
 
             <View style={{paddingTop:30, paddingLeft: 10}}>
                 <Text style={{fontSize:20}}>Portfolio progress</Text>
+                <View>
+                    <View style={{flexDirection:'row', justifyContent: 'space-between'}}>
+                        <Text style={{flex:1,fontSize:20, alignItems:'flex-start'}}>{'\n'}Your portfolio</Text>
+                        <Text style={{fontSize:20, alignSelf: 'flex-end', paddingRight: 20}}>{'\n'}998.70 CHF</Text>
+                    </View>
+
+                    <View style={{flexDirection:'row'}}>
+                        <Text style={{flex:1,fontSize:20, alignItems:'flex-start'}}>You invested</Text>
+                        <Text style={{fontSize:20, alignSelf: 'flex-end', paddingRight: 20}}>900.00 CHF</Text>
+                    </View>
+                    
+                    <View style={{flexDirection:'row'}}>
+                        <Text style={{flex:1,fontSize:20, alignItems:'flex-start'}}>Your earned</Text>
+                        <Text style={{fontSize:20, alignSelf: 'flex-end', paddingRight: 20, fontWeight:'bold'}}>98.70 CHF</Text>
+                    </View>
+                    
+                </View>
+
+
             </View>
         </ScrollView>
       </View>
