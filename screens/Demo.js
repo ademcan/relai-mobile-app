@@ -39,6 +39,8 @@ export default class Demo extends Component {
       cumulcrypto.push(sumcrypto / price.v);
     });
 
+    console.log(cumulfiat)
+    console.log(cumulcrypto)
     this.setState({
       cumulfiat: cumulfiat,
       cumulcrypto: cumulcrypto
@@ -52,6 +54,7 @@ export default class Demo extends Component {
     const price = pricedata.map(item => {
       return item.v;
     });
+    console.log(price)
     return (
       <View style={styles.container}>
         <View
@@ -81,25 +84,42 @@ export default class Demo extends Component {
         </View>
 
         <View style={{ height: 200 }}>
+
+             {/* <YAxis
+                data={price}
+                contentInset={ { top: 20, bottom: 20 } }
+                svg={{
+                    fill: 'grey',
+                    fontSize: 10,
+                }}
+                numberOfTicks={ 10 }
+                formatLabel={ value => `${value}` }
+            /> */}
           <LineChart
             style={{ flex: 1 }}
             data={price}
-            svg={{ stroke: "rgba(134, 65, 244, 0.5)" }}
+            svg={{ stroke: "rgba(134, 65, 244, 0.5)", strokeWidth:3  }}
             contentInset={{ top: 20, bottom: 20 }}
+            gridMin={0}
+            gridMax={20000}
           >
             <Grid />
           </LineChart>
           <LineChart
             style={StyleSheet.absoluteFill}
             data={this.state.cumulfiat}
-            svg={{ stroke: "rgba(34, 128, 176, 0.5)" }}
+            svg={{ stroke: "rgba(34, 128, 176, 0.5)", strokeWidth:3  }}
             contentInset={{ top: 20, bottom: 20 }}
+            gridMin={0}
+            gridMax={20000}
           />
           <LineChart
             style={StyleSheet.absoluteFill}
             data={this.state.cumulcrypto}
-            svg={{ stroke: "rgba(345, 8, 16, 0.5)" }}
+            svg={{ stroke: "rgba(345, 8, 16, 0.5)", strokeWidth:3 }}
             contentInset={{ top: 20, bottom: 20 }}
+            gridMin={0}
+            gridMax={20000}
           />
         </View>
 
