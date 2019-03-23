@@ -89,8 +89,8 @@ _bootstrapAsync = async () => {
   // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
 
   // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
-  // this.props.navigation.navigate(walletCreated ? 'App' : 'App');
-  this.props.navigation.navigate(walletCreated ? 'Auth' : 'Auth');
+  this.props.navigation.navigate(walletCreated ? 'App' : 'App');
+  // this.props.navigation.navigate(walletCreated ? 'Auth' : 'Auth');
 };
 
 // Render any loading content that you like here
