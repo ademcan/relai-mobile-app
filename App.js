@@ -48,8 +48,6 @@
 //   },
 // });
 
-
-
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -59,90 +57,131 @@
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
 
-import React, {Component} from 'react';
-import { Button, Text, ImageBackground, ActivityIndicator, AsyncStorage, StatusBar, StyleSheet, View, Image, Linking } from 'react-native';
-import { createStackNavigator , createDrawerNavigator, createSwitchNavigator, DrawerItems, createAppContainer } from 'react-navigation';
+import React, { Component } from "react";
+import {
+  Button,
+  Text,
+  ImageBackground,
+  ActivityIndicator,
+  StatusBar,
+  StyleSheet,
+  View,
+  Image,
+  Linking
+} from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
+import {
+  createStackNavigator,
+  createDrawerNavigator,
+  createSwitchNavigator,
+  DrawerItems,
+  createAppContainer
+} from "react-navigation";
 
+import SignIn from "./screens/SignIn";
+import Main from "./screens/Main";
+import Demo from "./screens/Demo";
+import FAQ from "./screens/Faq";
+import Login from "./screens/Login";
+import Details from "./screens/Details";
+import Onboarding1 from "./screens/Onboarding1";
+import Onboarding2 from "./screens/Onboarding2";
+import Onboarding3 from "./screens/Onboarding3";
+import { TouchableHighlight } from "react-native-gesture-handler";
+import walletGenerator from "react-native-ethereum-wallets";
 
-import SignIn from './screens/SignIn';
-import Main from './screens/Main';
-import Demo from './screens/Demo';
-import FAQ from './screens/Faq';
-import Login from './screens/Login';
-import Details from './screens/Details';
-import Onboarding1 from './screens/Onboarding1'
-import Onboarding2 from './screens/Onboarding2'
-import Onboarding3 from './screens/Onboarding3'
-import { TouchableHighlight } from 'react-native-gesture-handler';
+//global.Buffer = require('buffer').Buffer;
 
 // AuthLoadingScreen checks if a wallet already exists
 // - if yes -> redirects to the app main view
 // - if no -> redirects to the CreateWallet view
 class AuthLoadingScreen extends React.Component {
-
   constructor(props) {
     super(props);
     this._bootstrapAsync();
   }
 
-// Fetch the token from storage then navigate to our appropriate place
-_bootstrapAsync = async () => {
-  // check if a wallet was already created
-  const walletCreated = await AsyncStorage.getItem('walletcreated');
-  // This will switch to the App screen or Auth screen and this loading
-  // screen will be unmounted and thrown away.
-  // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
+  // Fetch the token from storage then navigate to our appropriate place
+  _bootstrapAsync = async () => {
+    // check if a wallet was already created
+    const walletCreated = await AsyncStorage.getItem("walletcreatedpk");
 
-  // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
-  this.props.navigation.navigate(walletCreated ? 'App' : 'App');
-  // this.props.navigation.navigate(walletCreated ? 'Auth' : 'Auth');
-};
+    if (!walletCreated) {
+      walletGenerator.createPrivateKey().then(privateKey => {
+        AsyncStorage.setItem("walletcreatedpk", privateKey);
+      });
+    }
+    AsyncStorage.setItem("exchangeparams", "100CHF-" + new Date());
 
-// Render any loading content that you like here
-render() {
-  return (
-    <View>
-      <ActivityIndicator />
-    </View>
-  );
-}
+
+    // This will switch to the App screen or Auth screen and this loading
+    // screen will be unmounted and thrown away.
+    // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
+
+    // this.props.navigation.navigate(walletCreated ? 'App' : 'Auth');
+    this.props.navigation.navigate(walletCreated ? "App" : "App");
+    // this.props.navigation.navigate(walletCreated ? 'Auth' : 'Auth');
+  };
+
+  // Render any loading content that you like here
+  render() {
+    return (
+      <View>
+        <ActivityIndicator />
+      </View>
+    );
+  }
 }
 
 const CustomDrawerContentComponent = props => (
-  <View style={{ flex: 2, backgroundColor: '#273040'}}>
-    <View style={{flex:1, paddingTop: 100}}>
-      <DrawerItems {...props}/>
+  <View style={{ flex: 2, backgroundColor: "#273040" }}>
+    <View style={{ flex: 1, paddingTop: 100 }}>
+      <DrawerItems {...props} />
     </View>
-    <View style={{flex: 1, alignSelf: 'center', justifyContent: 'flex-end', bottom: 30}}>
-      <TouchableHighlight onPress={() => {props.navigation.navigate("SignIn")}} underlayColor={'#273040'}>
-        <Image source={require('./resources/images/relai_logo.png')} resizeMode={"contain"}  style={{width:150, height:150}} />
+    <View
+      style={{
+        flex: 1,
+        alignSelf: "center",
+        justifyContent: "flex-end",
+        bottom: 30
+      }}
+    >
+      <TouchableHighlight
+        onPress={() => {
+          props.navigation.navigate("SignIn");
+        }}
+        underlayColor={"#273040"}
+      >
+        <Image
+          source={require("./resources/images/relai_logo.png")}
+          resizeMode={"contain"}
+          style={{ width: 150, height: 150 }}
+        />
       </TouchableHighlight>
     </View>
   </View>
-)
-
+);
 
 // The Stack for modals
 const MainStack = createStackNavigator(
   {
-    Main : {
-      path: '/',
+    Main: {
+      path: "/",
       screen: Main
     },
-    Details : {
-      path: '/',
+    Details: {
+      path: "/",
       screen: Details
-  },
+    }
   },
   {
-    headerMode: 'none',
+    headerMode: "none"
   }
 );
 
-
 // MainDrawerMenu
 const MainDrawerMenu = createDrawerNavigator(
-  { 
+  {
     // TransactionsHistory : {
     //   path: '/',
     //   screen: TxStack,
@@ -156,65 +195,68 @@ const MainDrawerMenu = createDrawerNavigator(
     //   },
     // },
     Learn: { screen: FAQ },
-    Simulate : { screen: Demo },
-   
-    "Invest": {
+    Simulate: { screen: Demo },
+
+    Invest: {
       screen: MainStack,
       navigationOptions: {
         drawerIcon: ({ tintColor }) => (
-          <Image source={require('./resources/images/wallet_menu.png')} resizeMode={"contain"}  style={{width:45, height:45}}/>
-        ),
+          <Image
+            source={require("./resources/images/wallet_menu.png")}
+            resizeMode={"contain"}
+            style={{ width: 45, height: 45 }}
+          />
+        )
         // drawerLabel: 'Settings',
         // drawerIcon: ({ tintColor }) => <Icon name="cog" size={17} />,
-      }, 
-    },
-
+      }
+    }
   },
   {
     initialRouteName: "Invest",
-    drawerPosition: 'left',
+    drawerPosition: "left",
     contentComponent: CustomDrawerContentComponent,
     contentOptions: {
       labelStyle: {
-        color: 'white',
-        fontWeight: 'normal',
+        color: "white",
+        fontWeight: "normal",
         fontSize: 20,
-        alignItems: 'center',
+        alignItems: "center"
       },
-      itemStyle : {
+      itemStyle: {
         height: 70,
-        paddingLeft: 10,
-      },
-    },
-  },
+        paddingLeft: 10
+      }
+    }
+  }
 );
 
 // The Stack for modals
 const RootStack = createStackNavigator(
   {
     MainDrawer: {
-      screen: MainDrawerMenu,
-    },
+      screen: MainDrawerMenu
+    }
   },
   {
-    mode: 'modal',
-    headerMode: 'none',
-  },
+    mode: "modal",
+    headerMode: "none"
+  }
 );
 
 // Stack Navigator for wallet creation process
 const AuthStack = createStackNavigator(
   {
     SignIn: { screen: SignIn },
-    Login: { screen: Login},
-    Onboarding1: { screen: Onboarding1},
-    Onboarding2: { screen: Onboarding2},
-    Onboarding3: { screen: Onboarding3},
+    Login: { screen: Login },
+    Onboarding1: { screen: Onboarding1 },
+    Onboarding2: { screen: Onboarding2 },
+    Onboarding3: { screen: Onboarding3 }
   },
   {
-    initialRouteName: 'SignIn',
-    headerMode: 'none',
-  },
+    initialRouteName: "SignIn",
+    headerMode: "none"
+  }
 );
 
 // const AuthStack = StackNavigator({ SignIn: CreateWallet });
@@ -222,10 +264,10 @@ const AppNavigator = createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
     App: RootStack,
-    Auth: AuthStack,
+    Auth: AuthStack
   },
   {
-    initialRouteName: 'AuthLoading',
+    initialRouteName: "AuthLoading"
   }
 );
 

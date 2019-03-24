@@ -6,11 +6,19 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.2.1",
+    "buffer": "^5.2.1",
+    "elliptic": "^6.4.1",
+    "js-sha3": "^0.8.0",
     "react": "^16.8.5",
     "react-native": "0.59.1",
+    "react-native-ethereum-wallets": "^0.1.2",
     "react-native-gesture-handler": "^1.1.0",
+    "react-native-securerandom": "^0.3.0",
     "react-native-svg": "^9.3.6",
     "react-native-svg-charts": "^5.2.0",
-    "react-navigation": "^3.5.1"
+    "react-navigation": "^3.5.1",
+    "rlp": "^2.2.3",
+    "secp256k1": "^3.6.2"
   }
 }
